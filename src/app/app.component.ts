@@ -1,13 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ToasterConfig, ToasterService } from 'angular2-toaster';
 import { Modal } from 'ngx-modialog/plugins/vex';
+
+import { Store } from '@ngrx/store';
+import * as fromRoot from './store';
+import * as fromBank from './bank/store/bank.reducer';
+import * as bankActions from './bank/store/bank.actions';
+import { Account } from './bank/models/account.model';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'app';
   toasterconfig: ToasterConfig = new ToasterConfig({
     animation: 'fade',
@@ -16,10 +23,19 @@ export class AppComponent {
     mouseoverTimerStop: true
   });
 
+  accounts: Observable<Account[]>;
+
   constructor(
     private modal: Modal,
-    private toasterService: ToasterService
+    private toasterService: ToasterService,
+
+    private store: Store<fromRoot.State>,
   ) { }
+
+  ngOnInit() {
+    this.store.dispatch(new bankActions.LoadAccounts());
+    this.accounts = this.store.select(fromBank.selectAccounts);
+  }
 
   onClick() {
     this.modal.confirm()

@@ -1,0 +1,52 @@
+{
+  "accounts": [
+    {
+      "id": 1,
+      "titular": "Jon Doe",
+      "capital": 3000000,
+      "createdAt": 1512094034,
+      "numero-cuenta": "4000-1234-9518-0001",
+      "transactions": [
+        {
+          "valor": 35000,
+          "fecha": 1512095034,
+          "concepto": "Compra de articulo 1"
+        },
+        {
+          "valor": 50000,
+          "fecha": 1512095034,
+          "concepto": "Compra de articulo 2"
+        },
+        {
+          "valor": 150000,
+          "fecha": 1512095034,
+          "concepto": "Compra de articulo 3"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "titular": "Jane Doe",
+      "capital": 100000,
+      "createdAt": 1512094034,
+      "numero-cuenta": "4000-1234-9518-0002",
+      "transactions": [
+        {
+          "valor": 35000,
+          "fecha": 1512095034,
+          "concepto": "Compra de comestible 1"
+        },
+        {
+          "valor": 50000,
+          "fecha": 1512095034,
+          "concepto": "Compra de comestible 2"
+        },
+        {
+          "valor": 150000,
+          "fecha": 1512095034,
+          "concepto": "Compra de comestible 3"
+        }
+      ]
+    }
+  ]
+}
