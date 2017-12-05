@@ -8,7 +8,7 @@ import { Transaction } from './models/transaction.model';
 @Injectable()
 export class BankService {
 
-  readonly API_URL = 'http://localhost:3000';
+  readonly API_URL = 'http://localhost:3000/api';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -23,14 +23,14 @@ export class BankService {
   addAccount(account: Account): Observable<Account> {
     return this.httpClient.post<Account>(
       `${this.API_URL}/accounts`,
-      account
+      { account: account }
     );
   }
 
   addTransactionById(id: number, transaction: Transaction): Observable<any> {
     return this.httpClient.post(
-      `${this.API_URL}/accounts/${id}/transaccion`,
-      transaction
+      `${this.API_URL}/accounts/${id}/transaction`,
+      { transaction: transaction }
     );
   }
 

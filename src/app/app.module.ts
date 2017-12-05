@@ -17,6 +17,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { InfoToasterService } from './core/services/info-toaster.service';
 import { BankModule } from './bank/bank.module';
+import { AppSocketIoService } from './app.socketio.service';
 
 
 @NgModule({
@@ -39,7 +40,15 @@ import { BankModule } from './bank/bank.module';
       maxAge: 50
     })
   ],
-  providers: [InfoToasterService],
+  providers: [
+    InfoToasterService,
+    AppSocketIoService
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private appSocketIoService: AppSocketIoService) {
+    this.appSocketIoService.consumeEventOnUserConnected();
+    this.appSocketIoService.consumeEventOnAccountSaved();
+  }
+}

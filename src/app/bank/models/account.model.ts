@@ -1,10 +1,10 @@
 import { Transaction } from './transaction.model';
 
 export interface Account {
-  id: number;
+  id: string;
   titular: string;
   capital: number;
-  createdAt: Date;
+  createdAt?: Date;
   numero_cuenta: string;
-  transacciones: Transaction[];
+  transacciones?: Transaction[];
 }

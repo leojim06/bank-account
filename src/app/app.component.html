@@ -6,21 +6,21 @@
     <li class="nav-item">
       <a class="nav-link text-light" [routerLink]="['home']">Home Page</a>
     </li>
+    <li class="nav-item">
+      <a class="nav-link text-light" [routerLink]="['accounts']">Cuentas Bancarias</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-light" [routerLink]="['accounts/new']">Crear nueva cuenta</a>
+    </li>
   </ul>
 </nav>
 
 <main class="container">
-  <div>
-    <h1>Bank Account</h1>
-  </div>
-  <button class="btn btn-info" (click)="onClick()">Boton de Alerta</button>
+  <!-- <button class="btn btn-info" (click)="onClick()">Boton de Alerta</button> -->
   <br>
   <router-outlet></router-outlet>
 </main>
 
 <footer>
   <br>
-  <pre lang="json">
-      {{accounts | async | json}}
-  </pre>
 </footer>

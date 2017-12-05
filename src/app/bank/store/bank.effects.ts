@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect, toPayload } from '@ngrx/effects';
 import { Observable } from 'rxjs/Rx';
+import { Router } from '@angular/router';
 
 import * as bankActions from './bank.actions';
 import { BankService } from '../bank.service';
 import { InfoToasterService, ErrorTypeBankToaster } from '../../core/services/info-toaster.service';
+import { AppSocketIoService } from '../../app.socketio.service';
 import { Account } from '../models/account.model';
 import { Transaction } from '../models/transaction.model';
 
@@ -15,7 +17,9 @@ export class BankEffects {
   constructor(
     private actions: Actions,
     private bankService: BankService,
-    private infoToasterService: InfoToasterService
+    private infoToasterService: InfoToasterService,
+    private appSocketIoService: AppSocketIoService,
+    private router: Router
   ) { }
 
   @Effect()
@@ -48,6 +52,8 @@ export class BankEffects {
     .switchMap(payload => this.bankService.addAccount(payload.account)
       .map((account: Account) => {
         this.infoToasterService.addAccountSuccessToaster(account);
+        this.appSocketIoService.emitEventOnAccountSaved(account);
+        this.router.navigate(['/accounts']);
         return new bankActions.AddAccountSuccess({ account });
       })
       .catch((error: any) => {

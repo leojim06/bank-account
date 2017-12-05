@@ -1,3 +1,12 @@
-<p>
-  account-index works!
-</p>
+<h2>Lista de cuentas bancarias</h2>
+<div>
+  <p class="lead">A continuación se presentan las cuentas de ahorros registradas en el sistema
+    <strong>Bank Acount</strong>
+  </p>
+</div>
+
+
+<div *ngFor="let account of accounts | async">
+  <app-account [account]="account"></app-account>
+  <br>
+</div>
