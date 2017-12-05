@@ -4,9 +4,9 @@
       "id": 1,
       "titular": "Jon Doe",
       "capital": 3000000,
-      "createdAt": 1512094034,
-      "numero-cuenta": "4000-1234-9518-0001",
-      "transactions": [
+      "createdAt": "Fri Dec 01 2017 14: 02: 24 GMT-0500 (Hora est. Pacífico, Sudamérica)",
+      "numero_cuenta": "4000-1234-9518-0001",
+      "transacciones": [
         {
           "valor": 35000,
           "fecha": 1512095034,
@@ -28,9 +28,9 @@
       "id": 2,
       "titular": "Jane Doe",
       "capital": 100000,
-      "createdAt": 1512094034,
-      "numero-cuenta": "4000-1234-9518-0002",
-      "transactions": [
+      "createdAt": "Fri Dec 01 2017 08: 25: 00 GMT-0500 (Hora est. Pacífico, Sudamérica)",
+      "numero_cuenta": "4000-1234-9518-0002",
+      "transacciones": [
         {
           "valor": 35000,
           "fecha": 1512095034,
