@@ -35,7 +35,8 @@ export class AccountFormComponent implements OnInit {
   }
 
   private generateAccountNumber(): string {
-    return '4000-1234-1598-0003';
+    return '4000-1234-1xxx-xxxx'
+      .replace(/x/g, () => (Math.floor(Math.random() * 10)).toString());
   }
 
 }
